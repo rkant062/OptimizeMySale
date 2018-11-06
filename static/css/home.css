@@ -1,11 +1,11 @@
 
 #itemImage {
 	height: 200px;
-	width: 150px;
+	width: 180px;
 }
 
 .display {
-	margin-top: 20px;
+	margin-top: 22px;
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-bottom: 20px;
@@ -18,10 +18,12 @@ table {
 #productName {
 	text-align: center;
 	font-weight: bold;
+	color: #ff3d3d;
 }
 
 #productPrice {
 	text-align: center;
+	font-weight: 300px;
 }
 
 .displayCategory ul li {
