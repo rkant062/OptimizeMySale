@@ -1,26 +1,46 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Welcome</title>
+<title>Lappy Place</title>
 <link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
 <link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-<div id="title">
-	<a href="/">
-		<img id="logo" src= {{ url_for('static', filename='images/logo.png') }} />
-	</a>
-	<form>
-		<input id="searchBox" type="text" name="searchQuery">
-		<input id="searchButton" type="submit" value="Search">
-	</form>
+<body >
+<nav class="navbar navbar-inverse">
+<div >
+	<div class="container-fluid">
+		<a href="/">
+			<img id="logo" src= {{ url_for('static', filename='images/laptop.png') }} />
+		</a>
+	<div class="navbar-header">
+		<a class="navbar-brand" href="#">Lappy Place</a>
+	</div>
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="#">Home</a></li>
+		<li><a href="#">Shop PCs</a></li>
+		<li><a href="#">Laptops</a></li>
+		<li><a href="#">Accesories</a></li>
+	</ul>
+
+
+	<form class="navbar-form navbar-left">
+		 <div class="form-group">
+			 <input type="text" class="form-control" placeholder="Search">
+		 </div>
+		 <button type="submit" class="btn btn-danger">Submit</button>
+	 </form>
 
 	{% if not loggedIn %}
 	<div id="signInButton">
 		<a class="link" href="/loginForm">Sign In</a>
 	</div>
 	{% else %}
-	<div class="dropdown">
+	<div class="navbar-dropdown dropdown">
 		<button class="dropbtn">Hello, <br>{{firstName}}</button>
 		<div class="dropdown-content">
 			<a href="/account/orders">Your orders</a>
@@ -31,11 +51,21 @@
 	</div>
 	{% endif %}
 	<div id="kart">
-		<a class="link" href="/cart">
+		<a class="link" href="/cart" >
 			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
-			CART {{noOfItems}}
+			<font color="#ff3d3d">  Cart -- {{noOfItems}}</font>
 		</a>
 	</div>
+</div>
+</nav>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="img"><img class="d-block img-fluid" src="static/images/img2.jpg" alt="First slide"></div>
+    </div>
+
+  </div>
 </div>
 <div class="display">
 	<div class="displayCategory">
@@ -47,9 +77,47 @@
 		</ul>
 	</div>
 	<div>
-		<h2>Items</h2>
-		{% for data in itemData %}
-		<table>
+		<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><font color= "#ff3d3d">Laptops</font></a>
+
+</nav>
+
+
+
+		<div class="text-align container-fluid">
+				{% for data in itemData %}
+
+						{% for row in data %}
+					<div class="block-image">
+					<div id="productName">
+
+						<h6>{{row[1]}}</h6>
+
+					</div>
+					<div id="productImage">
+
+						<a href="/productDescription?productId={{row[0]}}">
+											<img class="img-responsiv" src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
+					 </a>
+
+					</div>
+					<div id="productPrice">
+
+						<h6>{{row[2]}}</h6>
+
+					</div>
+							</div>
+{% endfor %}
+
+
+
+			</div>
+
+
+
+		<!--<table>
 			<tr id="productName">
 				{% for row in data %}
 				<td>
@@ -61,7 +129,13 @@
 				{% for row in data %}
 				<td>
 					<a href="/productDescription?productId={{row[0]}}">
-						<img src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
+						<div class="view overlay zoom">
+  	<img src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" class="img-fluid " alt="smaple image">
+    <div class="mask flex-center">
+        <p class="white-text">Zoom effect</p>
+    </div>
+</div>
+
 					</a>
 				</td>
 				{% endfor %}
@@ -75,8 +149,7 @@
 			</tr>
 		</table>
 		{% endfor %}
-	</div>
-</div>
+	</div>-->
+
 </body>
 </html>
-
