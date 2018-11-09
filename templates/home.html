@@ -40,7 +40,7 @@
 		<a class="link" href="/loginForm">Sign In</a>
 	</div>
 	{% else %}
-	<div class="dropdown">
+	<div class="navbar-dropdown dropdown">
 		<button class="dropbtn">Hello, <br>{{firstName}}</button>
 		<div class="dropdown-content">
 			<a href="/account/orders">Your orders</a>
@@ -84,8 +84,40 @@
 
 </nav>
 
-		{% for data in itemData %}
-		<table>
+
+
+		<div class="text-align container-fluid">
+				{% for data in itemData %}
+
+						{% for row in data %}
+					<div class="block-image">
+					<div id="productName">
+
+						<h6>{{row[1]}}</h6>
+
+					</div>
+					<div id="productImage">
+
+						<a href="/productDescription?productId={{row[0]}}">
+											<img class="img-responsiv" src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
+					 </a>
+
+					</div>
+					<div id="productPrice">
+
+						<h6>{{row[2]}}</h6>
+
+					</div>
+							</div>
+{% endfor %}
+
+
+
+			</div>
+
+
+
+		<!--<table>
 			<tr id="productName">
 				{% for row in data %}
 				<td>
@@ -99,6 +131,9 @@
 					<a href="/productDescription?productId={{row[0]}}">
 						<div class="view overlay zoom">
   	<img src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" class="img-fluid " alt="smaple image">
+    <div class="mask flex-center">
+        <p class="white-text">Zoom effect</p>
+    </div>
 </div>
 
 					</a>
@@ -114,7 +149,7 @@
 			</tr>
 		</table>
 		{% endfor %}
-	</div>
-</div>
+	</div>-->
+
 </body>
 </html>

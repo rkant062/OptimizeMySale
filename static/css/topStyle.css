@@ -33,6 +33,10 @@
 	float: left;
 }
 
+.navbar-dropdown{
+	z-index: 999;
+}
+
 .dropbtn {
 	background-color: #1f1f1f;
 	color: white;
@@ -43,6 +47,14 @@
 	cursor: pointer;
 }
 
+.text-align{
+	text-align: center;
+}
+.block-image{
+ display: inline-block;
+ margin-bottom: 20px;
+ margin-right: 10px;
+}
 .dropdown {
 	position: relative;
 	float: right;
