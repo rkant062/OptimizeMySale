@@ -1,96 +1,135 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<title>Lappy Place</title>
-<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
-<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Lappy Place</title>
+	<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
+	<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body >
-<nav class="navbar navbar-inverse">
-<div >
-	<div class="container-fluid">
-		<a href="/">
-			<img id="logo" src= {{ url_for('static', filename='images/laptop.png') }} />
-		</a>
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Lappy Place</a>
-	</div>
-	<ul class="nav navbar-nav">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">Shop PCs</a></li>
-		<li><a href="#">Laptops</a></li>
-		<li><a href="#">Accesories</a></li>
-	</ul>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<a href="/">
+				<img id="logo" src={{ url_for('static', filename='images/laptop.png') }} />
+			</a>
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Lappy Place</a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Shop PCs</a></li>
+					<li><a href="#">Laptops</a></li>
+					<li><a href="#">Accesories</a></li>
+				</ul>
 
 
-	<form class="navbar-form navbar-left">
-		 <div class="form-group">
-			 <input type="text" class="form-control" placeholder="Search">
-		 </div>
-		 <button type="submit" class="btn btn-danger">Submit</button>
-	 </form>
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-danger">Submit</button>
+				</form>
 
-	{% if not loggedIn %}
-	<div id="signInButton">
-		<a class="link" href="/loginForm">Sign In</a>
-	</div>
-	{% else %}
-	<div class="navbar-dropdown dropdown">
-		<button class="dropbtn">Hello, <br>{{firstName}}</button>
-		<div class="dropdown-content">
-			<a href="/account/orders">Your orders</a>
-			<a href="/account/profile">Your profile</a>
-			<hr>
-			<a href="/logout">Sign Out</a>
+				{% if not loggedIn %}
+				<div id="signInButton">
+					<a class="link" href="/loginForm">Sign In</a>
+				</div>
+				{% else %}
+				<div class="navbar-dropdown dropdown">
+					<button class="dropbtn">Hello, <br>{{firstName}}</button>
+					<div class="dropdown-content">
+						<a href="/account/orders">Your orders</a>
+						<a href="/account/profile">Your profile</a>
+						<hr>
+						<a href="/logout">Sign Out</a>
+					</div>
+				</div>
+				{% endif %}
+				<div id="kart">
+					<a class="link" href="/cart">
+						<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+						<font color="#ff3d3d"> Cart -- {{noOfItems}}</font>
+					</a>
+				</div>
+			</div>
 		</div>
-	</div>
-	{% endif %}
-	<div id="kart">
-		<a class="link" href="/cart" >
-			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
-			<font color="#ff3d3d">  Cart -- {{noOfItems}}</font>
+	</nav>
+
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="static/images/img2.jpg">
+			</div>
+			<div class="item">
+				<img src="static/images/img2.jpg">
+			</div>
+			<div class="item">
+				<img src="static/images/img2.jpg">
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
 		</a>
 	</div>
-</div>
-</nav>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <div class="img"><img class="d-block img-fluid" src="static/images/img2.jpg" alt="First slide"></div>
-    </div>
 
-  </div>
-</div>
-<div class="display">
-	<div class="displayCategory">
-		<h2>Shop by Category: </h2>
-		<ul>
-			{% for row in categoryData %}
-			<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div>
-		<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><font color= "#ff3d3d">Laptops</font></a>
+	<div class="display">
+		<div class="displayCategory">
+			<h2>Shop by Category: </h2>
+			<ul>
+				{% for row in categoryData %}
+				<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div>
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">
+							<font color="#ff3d3d">Laptops</font>
+						</a>
 
-</nav>
+			</nav>
 
 
 
-		<div class="text-align container-fluid">
+			<div class="text-align container-fluid">
 				{% for data in itemData %}
 
-						{% for row in data %}
-					<div class="block-image">
+				{% for row in data %}
+				<div class="block-image">
 					<div id="productName">
 
 						<h6>{{row[1]}}</h6>
@@ -99,8 +138,8 @@
 					<div id="productImage">
 
 						<a href="/productDescription?productId={{row[0]}}">
-											<img class="img-responsiv" src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
-					 </a>
+							<img class="img-responsiv" src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
+						</a>
 
 					</div>
 					<div id="productPrice">
@@ -108,8 +147,8 @@
 						<h6>{{row[2]}}</h6>
 
 					</div>
-							</div>
-{% endfor %}
+				</div>
+				{% endfor %}
 
 
 
@@ -117,7 +156,7 @@
 
 
 
-		<!--<table>
+			<!--<table>
 			<tr id="productName">
 				{% for row in data %}
 				<td>
@@ -152,4 +191,5 @@
 	</div>-->
 
 </body>
+
 </html>
