@@ -34,8 +34,15 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#">Shop PCs</a></li>
-					<li><a href="#">Laptops</a></li>
-					<li><a href="#">Accesories</a></li>
+					<li class="dropdown">
+			 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Laptops
+			 <span class="caret"></span></a>
+			 <ul class="dropdown-menu">
+				 {% for row in categoryData %}
+ 				<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
+ 				{% endfor %}
+			 </ul>
+		 </li>
 				</ul>
 
 
@@ -103,8 +110,14 @@
 		</a>
 	</div>
 
+<center><h2>Great deals this <font color="orange"> Diwali</font></h2></center>
+ <div>
+	 <tr>
+	<td>
+	 <img src="static/images/img3.jpg"></td> &nbsp; &nbsp;&nbsp; &nbsp;<td> <img src="static/images/img4.jpg"></td></tr>
+ </div>
 
-	<div class="display">
+	<!--<div class="display">
 		<div class="displayCategory">
 			<h2>Shop by Category: </h2>
 			<ul>
@@ -112,12 +125,12 @@
 				<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
 				{% endfor %}
 			</ul>
-		</div>
+		</div>-->
 		<div>
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#">
+						<a  href="#">
 							<font color="#ff3d3d">Laptops</font>
 						</a>
 
