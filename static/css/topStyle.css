@@ -1,5 +1,5 @@
 #logo {
-	height: 40px;
+	height: 50px;
 	width: 50px;
 	margin-left: 20px;
 	margin-top: 10px;
@@ -28,23 +28,37 @@
 #searchButton {
 	height: 25px;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	margin-right: 20px;
 	float: left;
 }
 
+.navbar-dropdown{
+	z-index: 999;
+}
+
 .dropbtn {
-	background-color: black;
+	background-color: #1f1f1f;
 	color: white;
-	padding: 16px;
+	padding: 14px;
 	font-size: 15px;
+	margin-left: 20px;
 	border: none;
 	cursor: pointer;
 }
 
+.text-align{
+	text-align: center;
+}
+.block-image{
+ display: inline-block;
+ margin-bottom: 20px;
+ margin-right: 10px;
+}
 .dropdown {
 	position: relative;
-	float: left;
+	float: right;
+	margin-right: 120px;
 }
 
 .dropdown-content  {
@@ -52,7 +66,9 @@
 	position: absolute;
 	background-color: #f9f9f9;
 	min-width: 160px;
+	margin-left: 20px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	float: left;
 }
 
 .dropdown-content a {
@@ -74,24 +90,22 @@
 }
 
 #signInButton {
-	color: yellow;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	color: red;
+	line-height: 70px;
 	margin-left: 20px;
 	margin-right: 20px;
 	float: left;
 }
-#kart {
-	color: white;
+#kart{
+	color: #ff0000;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 8px;
 	margin-left: 20px;
 	margin-right: 20px;
-	float: left;
+	float: right;
 }
 
 #cartIcon {
 	height: 30px;
 	width: 30px;
 }
-
